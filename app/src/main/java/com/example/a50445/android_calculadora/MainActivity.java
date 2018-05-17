@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         final Button buttonVirgula = (Button) findViewById(R.id.buttonVirgula);
         final Button buttonClear = (Button) findViewById(R.id.buttonClear);
         final Button buttonElevado = (Button) findViewById(R.id.buttonElevado);
+        final Button buttonCos = (Button) findViewById(R.id.buttonCos);
+        final Button buttonSen = (Button) findViewById(R.id.buttonSen);
+        final Button buttonTan = (Button) findViewById(R.id.buttonTan);
+        final Button buttonQuadrado = (Button) findViewById(R.id.buttonQuadrado);
+        final Button buttonCubo = (Button) findViewById(R.id.buttonCubo);
         final TextView textViewEcra = (TextView) findViewById(R.id.textViewEcra);
 
 
@@ -187,6 +192,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        buttonQuadrado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (textViewEcra.getText().equals("")) {
+                } else {
+                    parcela1 = textViewEcra.getText();           //Valor do display2 vai para a variavel parcela1 e fica em memoria
+                    textViewEcra.setText("");                    //Limpa o display2
+                    operacao = "x2";                        //Executa a operaçao
+                }
+            }
+        });
+
+        buttonCubo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (textViewEcra.getText().equals("")) {
+                } else {
+                    parcela1 = textViewEcra.getText();           //Valor do display2 vai para a variavel parcela1 e fica em memoria
+                    textViewEcra.setText("");                    //Limpa o display2
+                    operacao = "x3";                        //Executa a operaçao
+                }
+            }
+        });
+
         buttonVirgula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,6 +310,28 @@ public class MainActivity extends AppCompatActivity {
                         //Coloca o display2 e o resultado convertido para string
                         String total = String.valueOf(resultado);
                         textViewEcra.setText(valor1 + " ^ " + valor2 + " = " + total);
+                        operacao = "";
+                    }
+
+                    if (operacao == "x2") {
+                        //Converte para doubles as strings parcela1 e display2 e soma
+                        double valor1 = Double.parseDouble(parcela1.toString());
+                        resultado = valor1 * valor1;
+
+                        //Coloca o display2 e o resultado convertido para string
+                        String total = String.valueOf(resultado);
+                        textViewEcra.setText(total);
+                        operacao = "";
+                    }
+
+                    if (operacao == "x3") {
+                        //Converte para doubles as strings parcela1 e display2 e soma
+                        double valor1 = Double.parseDouble(parcela1.toString());
+                        resultado = valor1 * valor1 * valor1;
+
+                        //Coloca o display2 e o resultado convertido para string
+                        String total = String.valueOf(resultado);
+                        textViewEcra.setText(total);
                         operacao = "";
                     }
                 }

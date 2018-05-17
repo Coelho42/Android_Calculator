@@ -12,4 +12,9 @@
     <string name="_2">2</string>
     <string name="_3">3</string>
     <string name="_0">0</string>
+    <string name="tan">Tan</string>
+    <string name="cos">Cos</string>
+    <string name="x2">x2</string>
+    <string name="x3">x3</string>
+    <string name="sen">Sen</string>
 </resources>
