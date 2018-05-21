@@ -1,5 +1,6 @@
 package com.example.a50445.android_calculadora;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Variáveis
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Criação do Button Java usando o método da classe super findViewById()
         final Button buttonNum0 = (Button) findViewById(R.id.buttonNum0);
@@ -187,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 if (textViewEcra.getText().equals("")) {
                 } else {
                     parcela1 = textViewEcra.getText();           //Valor do display2 vai para a variavel parcela1 e fica em memoria
-                    textViewEcra.setText("");
                     operacao = "^";                         //Executa a operaçao
                 }
             }
@@ -199,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
                 if (textViewEcra.getText().equals("")) {
                 } else {
                     parcela1 = textViewEcra.getText();           //Valor do display2 vai para a variavel parcela1 e fica em memoria
-                    textViewEcra.setText("");                    //Limpa o display2
                     operacao = "x2";                        //Executa a operaçao
                 }
             }
@@ -337,5 +334,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+    public void button0(View b){
+        ((TextView)findViewById(R.id.buttonNum0)).setText("0");
     }
 }
