@@ -63,9 +63,12 @@ public class MainActivity extends AppCompatActivity {
     public void buttonMais(View b){
         if (((TextView)findViewById(R.id.textViewEcra)).getText().equals("")) {
         } else {
-            parcela1 = ((TextView)findViewById(R.id.textViewEcra)).getText();           //Valor do display vai para a variavel parcela1 e fica em memoria
-            ((TextView)findViewById(R.id.textViewEcra)).setText("");                    //Limpa o display
-            operacao = "+";                         //Executa a operaçao
+            do {
+                parcela1 = ((TextView) findViewById(R.id.textViewEcra)).getText();           //Valor do display vai para a variavel parcela1 e fica em memoria
+                ((TextView) findViewById(R.id.textViewEcra)).setText("");                    //Limpa o display
+                resultado = Double.parseDouble(parcela1.toString()) + Double.parseDouble(((TextView) findViewById(R.id.textViewEcra)).getText().toString());
+                operacao = "+";                         //Executa a operaçao
+            }while(operacao != "+");
         }
     }
 
@@ -131,14 +134,9 @@ public class MainActivity extends AppCompatActivity {
 
             //se operaçao for +
             if (operacao == "+") {
-                //Converte para doubles as strings parcela1 e display e soma
-                double valor1 = Double.parseDouble(parcela1.toString());
-                double valor2 = Double.parseDouble(((TextView)findViewById(R.id.textViewEcra)).getText().toString());
-                resultado = valor1 + valor2;
-
                 //Coloca o display e o resultado convertido para string
                 String total = String.valueOf(resultado);
-                ((TextView)findViewById(R.id.textViewEcra)).setText(valor1 + " + " + valor2 + " = " + total);
+                ((TextView)findViewById(R.id.textViewEcra)).setText(total);
                 operacao = "";
             }
 
